@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/producer-app")
 public class EventController {
@@ -28,7 +30,7 @@ public class EventController {
     }
 
     @PostMapping("/publish")
-    public void sendEvents(@RequestBody Customer customer) {
+    public void sendEvents(@RequestBody List<Customer> customer) {
         publisher.sendEventsToTopic(customer);
     }
 

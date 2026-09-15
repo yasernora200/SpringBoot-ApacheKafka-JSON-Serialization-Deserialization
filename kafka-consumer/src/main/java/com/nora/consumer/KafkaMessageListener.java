@@ -6,13 +6,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class KafkaMessageListener {
 
     Logger log = LoggerFactory.getLogger(KafkaMessageListener.class);
 
-    @KafkaListener(topics = "employees",groupId = "emp-group")
-    public void consumeEvents(Customer customer) {
+    @KafkaListener(topics = "students",groupId = "stud-group")
+    public void consumeEvents(List<Customer> customer) {
         log.info("consumer consume the events {} ", customer.toString());
     }
 
